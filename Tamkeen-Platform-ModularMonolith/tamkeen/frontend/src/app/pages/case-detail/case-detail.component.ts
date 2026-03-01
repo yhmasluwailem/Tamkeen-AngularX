@@ -1300,7 +1300,7 @@ export class CaseDetailComponent {
     if (!c?.courtType || !c.caseCategory || !c.caseSubCategory) return '—';
     const court = SAUDI_COURTS.find(ct => ct.id === c.courtType);
     const cat = court?.categories.find((cat: any) => cat.id === c.caseCategory);
-    return cat?.subtypes.find((s: any) => s.id === c.caseSubCategory)?.name || '—';
+    return cat?.subtypes?.find((s: any) => s.id === c.caseSubCategory)?.name || '—';
   });
 
   timelineEvents = computed(() => {
