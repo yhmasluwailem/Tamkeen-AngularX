@@ -1,0 +1,105 @@
+{
+  "app": {
+    "name": "تمكين",
+    "subtitle": "نظام إدارة المكاتب القانونية"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "leads": "الفرص والاستشارات",
+    "cases": "القضايا",
+    "clients": "العملاء",
+    "calendar": "الجلسات",
+    "documents": "المستندات",
+    "finance": "المالية",
+    "messages": "المراسلات",
+    "settings": "الإعدادات",
+    "logout": "خروج"
+  },
+  "dashboard": {
+    "welcome": "مرحباً",
+    "overview": "إليك نظرة عامة على أعمالك اليوم",
+    "activeCases": "القضايا النشطة",
+    "newLeads": "الفرص الجديدة",
+    "upcomingSessions": "الجلسات القادمة",
+    "totalRevenue": "إجمالي الإيرادات",
+    "quickActions": "إجراءات سريعة",
+    "newCase": "قضية جديدة",
+    "newLead": "فرصة جديدة",
+    "scheduleSession": "جدولة موعد",
+    "createInvoice": "إنشاء فاتورة",
+    "sendWhatsapp": "إرسال واتساب"
+  },
+  "cases": {
+    "title": "إدارة القضايا",
+    "addNew": "قضية جديدة",
+    "total": "إجمالي القضايا",
+    "active": "القضايا النشطة",
+    "pending": "القضايا المعلقة",
+    "closed": "القضايا المغلقة",
+    "search": "بحث بالعنوان، رقم ناجز، الخصم...",
+    "allStatuses": "جميع الحالات",
+    "allCourts": "جميع المحاكم",
+    "clear": "مسح"
+  },
+  "clients": {
+    "title": "إدارة العملاء",
+    "addNew": "عميل جديد",
+    "total": "إجمالي العملاء",
+    "individuals": "أفراد",
+    "corporates": "شركات",
+    "search": "بحث بالاسم، الهاتف، رقم الهوية..."
+  },
+  "leads": {
+    "title": "إدارة الفرص والاستشارات",
+    "addNew": "فرصة جديدة",
+    "new": "جديد",
+    "contacted": "تم التواصل",
+    "qualified": "مؤهل",
+    "proposal": "عرض سعر",
+    "won": "مكتسب",
+    "lost": "خاسر"
+  },
+  "calendar": {
+    "title": "تقويم الجلسات",
+    "addSession": "جلسة جديدة",
+    "today": "اليوم",
+    "upcomingSessions": "الجلسات القادمة"
+  },
+  "finance": {
+    "title": "الإدارة المالية",
+    "newInvoice": "فاتورة جديدة",
+    "totalRevenue": "إجمالي الإيرادات",
+    "pendingPayments": "مستحقات معلقة",
+    "overduePayments": "متأخرة السداد",
+    "totalInvoices": "عدد الفواتير"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "view": "عرض",
+    "search": "بحث",
+    "filter": "تصفية",
+    "all": "الكل",
+    "noData": "لا توجد بيانات",
+    "loading": "جاري التحميل..."
+  },
+  "status": {
+    "active": "نشطة",
+    "pending": "معلقة",
+    "closed": "مغلقة",
+    "archived": "مؤرشفة",
+    "scheduled": "مجدولة",
+    "completed": "مكتملة",
+    "cancelled": "ملغاة"
+  },
+  "courts": {
+    "personalStatus": "الأحوال الشخصية",
+    "execution": "التنفيذ",
+    "criminal": "الجزائية",
+    "general": "العامة",
+    "commercial": "التجارية",
+    "labor": "العمالية"
+  }
+}
