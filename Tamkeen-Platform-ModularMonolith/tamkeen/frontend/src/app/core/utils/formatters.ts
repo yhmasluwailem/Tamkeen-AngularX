@@ -12,3 +12,13 @@ export function daysUntil(date: string): number {
 export function truncate(str: string, len: number): string {
   return str.length > len ? str.substring(0, len) + '...' : str;
 }
+export function formatRelativeDate(date: string): string {
+  if (!date) return '—';
+  const diffDays = Math.floor((Date.now() - new Date(date).getTime()) / 86400000);
+  if (diffDays === 0) return 'اليوم';
+  if (diffDays === 1) return 'أمس';
+  if (diffDays < 7) return `منذ ${diffDays} أيام`;
+  if (diffDays < 30) return `منذ ${Math.floor(diffDays / 7)} أسابيع`;
+  if (diffDays < 365) return `منذ ${Math.floor(diffDays / 30)} أشهر`;
+  return `منذ ${Math.floor(diffDays / 365)} سنوات`;
+}

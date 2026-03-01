@@ -1,5 +1,6 @@
 export * from './models';
 export * from './services/store.service';
+export * from './services/mock-data-generator.service';
 export * from './services/workflow-engine.service';
 export * from './services/alert-engine.service';
 export * from './services/activity-log.service';

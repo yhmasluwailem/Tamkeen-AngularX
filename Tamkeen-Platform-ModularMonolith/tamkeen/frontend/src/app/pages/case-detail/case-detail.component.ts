@@ -1206,17 +1206,6 @@ export class CaseDetailComponent {
   lastActionId = signal<any>('contract_review');
   selectedAnalysisId = signal('');
 
-  caseDocuments = computed(() => {
-    const c = this.caseData();
-    if (!c) return [];
-    // In production, fetch from API. For now, provide sample documents.
-    return [
-      { id: 'doc-1', title: 'عقد تأسيس الشركة', file_size: 25600 },
-      { id: 'doc-2', title: 'اتفاقية الشراكة', file_size: 18400 },
-      { id: 'doc-3', title: 'خطاب المطالبة', file_size: 12800 },
-      { id: 'doc-4', title: 'وكالة رسمية', file_size: 8200 },
-    ];
-  });
   decision = '';
   assigneeId = '';
   statusChange = '';

@@ -25,7 +25,39 @@ export interface Task { id: string; title: string; description?: string; context
 export interface TaskRevision { id: string; revision_number: number; revision_type: 'submitted' | 'returned' | 'approved'; author_name: string; notes: string; created_at: string; }
 
 export type LeadStatus = 'intake' | 'consultation' | 'case_study' | 'fee_proposal' | 'engagement' | 'converted' | 'declined' | 'withdrawn';
-export interface Lead { id: string; name: string; phone: string; email?: string; status: LeadStatus; source: string; legal_issue_type?: string; issue_description?: string; assigned_to?: string; created_at: string; updated_at: string; }
+export interface Lead {
+  id: string; name: string; phone: string; email?: string; status: LeadStatus; source: string;
+  legal_issue_type?: string; issue_description?: string; assigned_to?: string;
+  created_at: string; updated_at?: string;
+  // camelCase aliases & extended fields
+  type?: 'individual' | 'corporate';
+  legalIssueType?: string;
+  urgencyLevel?: string;
+  issueDescription?: string;
+  assignedTo?: string;
+  idNumber?: string;
+  consultationDate?: string;
+  consultationFee?: number;
+  consultationPaid?: boolean;
+  consultationNotes?: string;
+  initialAssessment?: string;
+  communications?: any[];
+  conflictCheck?: boolean;
+  conflictNotes?: string;
+  caseMerit?: string;
+  meritNotes?: string;
+  complexityLevel?: string;
+  proposedAmount?: number;
+  proposalItems?: any[];
+  paymentPlan?: string;
+  contractSigned?: boolean;
+  contractDate?: string;
+  poaNumber?: string;
+  poaExpiry?: string;
+  initialPaymentReceived?: boolean;
+  initialPaymentAmount?: number;
+  [key: string]: any;
+}
 
 export type SessionStatus = 'scheduled' | 'completed' | 'cancelled' | 'postponed';
 export interface Session { id: string; case_id: string; title: string; date: string; time: string; session_type: string; status: SessionStatus; notes?: string; outcome?: string; created_at: string; }
@@ -38,7 +70,7 @@ export interface Document { id: string; title: string; category: DocumentCategor
 export type InvoiceStatus = 'draft' | 'issued' | 'paid' | 'partially_paid' | 'overdue' | 'cancelled';
 export interface Invoice { id: string; invoice_number: string; client_id: string; case_id?: string; total: number; status: InvoiceStatus; paid_amount: number; issue_date: string; due_date: string; }
 export interface Expense { id: string; title: string; category: string; amount: number; date: string; status: string; }
-export interface Employee extends User { department?: string; join_date: string; base_salary: number; permissions: string[]; }
+export interface Employee extends User { name?: string; joinDate?: string; department?: string; join_date: string; base_salary: number; permissions: string[]; }
 
 export interface Alert { id: string; title: string; description: string; severity: 'low' | 'medium' | 'high' | 'critical'; alert_type: string; days_remaining: number; entity_type: string; entity_id: string; link: string; dismissed: boolean; }
 export interface DashboardStats { totalClients: number; activeCases: number; newLeads: number; pendingInvoices: number; urgentTasks: number; upcomingSessions: number; totalRevenue: number; pendingPayments: number; monthlyRevenue: number; monthlyExpenses: number; netIncome: number; tasksSubmittedForReview: number; tasksReturned: number; tasksApproved: number; }
