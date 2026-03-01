@@ -1,0 +1,27 @@
+# ═══ أسرار ومتغيرات البيئة ═══
+.env
+.env.local
+.env.production
+
+# ═══ Python / Django ═══
+__pycache__/
+*.py[cod]
+*.so
+db.sqlite3
+*.log
+media/
+staticfiles/
+
+# ═══ Node / Angular ═══
+node_modules/
+dist/
+.angular/
+.cache/
+
+# ═══ IDE ═══
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

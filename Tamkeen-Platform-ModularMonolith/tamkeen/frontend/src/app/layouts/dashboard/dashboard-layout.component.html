@@ -1,0 +1,178 @@
+@if (sidebarMobileOpen()) {
+  <div class="tmk-overlay" (click)="toggleMobileSidebar()"></div>
+}
+
+<aside class="tmk-sidebar" [class.collapsed]="sidebarCollapsed()" [class.mobile-open]="sidebarMobileOpen()">
+  <div class="tmk-sidebar__logo">
+    <div class="tmk-sidebar__logo-icon"><i class="bi bi-shield-check"></i></div>
+    @if (!sidebarCollapsed()) {
+      <div class="tmk-sidebar__logo-text">
+        <span class="tmk-sidebar__logo-name">تمكين</span>
+        <span class="tmk-sidebar__logo-sub">Tamkeen</span>
+      </div>
+    }
+  </div>
+
+  <nav class="tmk-sidebar__nav">
+    <!-- Dashboard -->
+    <div class="tmk-sidebar__section">
+      @for (item of topNavItems(); track item.route) {
+        <a class="tmk-sidebar__link" [routerLink]="item.route" routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileOnNavigate()"
+           [title]="sidebarCollapsed() ? item.label : ''">
+          <i class="bi {{ item.icon }}"></i>
+          @if (!sidebarCollapsed()) { <span>{{ item.label }}</span> }
+        </a>
+      }
+    </div>
+
+    <!-- Case Management -->
+    <div class="tmk-sidebar__section">
+      @if (!sidebarCollapsed()) {
+        <button class="tmk-sidebar__section-toggle" (click)="toggleCaseManagement()">
+          <span class="tmk-sidebar__section-title">إدارة الأعمال</span>
+          <i class="bi" [class.bi-chevron-down]="caseManagementOpen()" [class.bi-chevron-left]="!caseManagementOpen()"></i>
+        </button>
+      }
+      @if (caseManagementOpen() || sidebarCollapsed()) {
+        @for (item of caseManagementItems(); track item.route) {
+          <a class="tmk-sidebar__link" [routerLink]="item.route" routerLinkActive="active"
+             (click)="closeMobileOnNavigate()" [title]="sidebarCollapsed() ? item.label : ''">
+            <i class="bi {{ item.icon }}"></i>
+            @if (!sidebarCollapsed()) {
+              <span>{{ item.label }}</span>
+              @if (item.badge) { <span class="tmk-sidebar__badge">{{ item.badge }}</span> }
+            }
+          </a>
+        }
+      }
+    </div>
+
+    <!-- Finance -->
+    <div class="tmk-sidebar__section">
+      @if (!sidebarCollapsed()) {
+        <button class="tmk-sidebar__section-toggle" (click)="toggleFinance()">
+          <span class="tmk-sidebar__section-title">المالية</span>
+          <i class="bi" [class.bi-chevron-down]="financeOpen()" [class.bi-chevron-left]="!financeOpen()"></i>
+        </button>
+      }
+      @if (financeOpen() || sidebarCollapsed()) {
+        @for (item of financeItems; track item.route) {
+          <a class="tmk-sidebar__link" [routerLink]="item.route" routerLinkActive="active"
+             (click)="closeMobileOnNavigate()" [title]="sidebarCollapsed() ? item.label : ''">
+            <i class="bi {{ item.icon }}"></i>
+            @if (!sidebarCollapsed()) { <span>{{ item.label }}</span> }
+          </a>
+        }
+      }
+    </div>
+
+    <!-- AI -->
+    <div class="tmk-sidebar__section">
+      @if (!sidebarCollapsed()) {
+        <span class="tmk-sidebar__section-title">الذكاء الاصطناعي</span>
+      }
+      @for (item of aiItems; track item.route) {
+        <a class="tmk-sidebar__link tmk-sidebar__link--ai" [routerLink]="item.route" routerLinkActive="active"
+           (click)="closeMobileOnNavigate()" [title]="sidebarCollapsed() ? item.label : ''">
+          <i class="bi {{ item.icon }}"></i>
+          @if (!sidebarCollapsed()) { <span>{{ item.label }}</span> }
+        </a>
+      }
+    </div>
+
+    <!-- Management -->
+    <div class="tmk-sidebar__section">
+      @if (!sidebarCollapsed()) {
+        <button class="tmk-sidebar__section-toggle" (click)="toggleManagement()">
+          <span class="tmk-sidebar__section-title">الإدارة والنظام</span>
+          <i class="bi" [class.bi-chevron-down]="managementOpen()" [class.bi-chevron-left]="!managementOpen()"></i>
+        </button>
+      }
+      @if (managementOpen() || sidebarCollapsed()) {
+        @for (item of managementItems; track item.route) {
+          <a class="tmk-sidebar__link" [routerLink]="item.route" routerLinkActive="active"
+             (click)="closeMobileOnNavigate()" [title]="sidebarCollapsed() ? item.label : ''">
+            <i class="bi {{ item.icon }}"></i>
+            @if (!sidebarCollapsed()) { <span>{{ item.label }}</span> }
+          </a>
+        }
+      }
+    </div>
+  </nav>
+
+  <div class="tmk-sidebar__footer">
+    <button class="tmk-sidebar__collapse-btn" (click)="toggleSidebar()">
+      <i class="bi" [class.bi-chevron-right]="!sidebarCollapsed()" [class.bi-chevron-left]="sidebarCollapsed()"></i>
+      @if (!sidebarCollapsed()) { <span>تصغير القائمة</span> }
+    </button>
+  </div>
+</aside>
+
+<div class="tmk-main" [class.sidebar-collapsed]="sidebarCollapsed()">
+  <header class="tmk-header">
+    <button class="tmk-header__mobile-menu d-lg-none" (click)="toggleMobileSidebar()"><i class="bi bi-list"></i></button>
+    <div class="tmk-header__search d-none d-md-flex">
+      <i class="bi bi-search"></i>
+      <input type="text" placeholder="بحث في القضايا، العملاء، المستندات..." />
+    </div>
+    <div class="tmk-header__spacer"></div>
+    <div class="tmk-header__actions">
+      <button class="tmk-header__action-btn" (click)="toggleDarkMode()" title="تبديل الوضع">
+        <i class="bi" [class.bi-moon-fill]="!darkMode()" [class.bi-sun-fill]="darkMode()"></i>
+      </button>
+      <div class="tmk-notifications" style="position:relative">
+        <button class="tmk-header__action-btn" (click)="toggleNotifications()">
+          <i class="bi bi-bell-fill"></i>
+          @if (alertCount() > 0) { <span class="tmk-header__action-badge">{{ alertCount() }}</span> }
+        </button>
+        @if (showNotifications()) {
+          <div class="tmk-dropdown tmk-dropdown--notifications">
+            <div class="tmk-dropdown__header">
+              <span class="fw-semibold">التنبيهات</span>
+              <span class="badge rounded-pill bg-danger" style="font-size:0.625rem">{{ alertCount() }}</span>
+            </div>
+            <div class="tmk-dropdown__body">
+              @for (alert of recentAlerts(); track alert.id) {
+                <a class="tmk-dropdown__item tmk-dropdown__item--unread" [routerLink]="alert.link" (click)="showNotifications.set(false)">
+                  <div class="tmk-icon tmk-icon--sm" [ngClass]="'tmk-icon--' + getAlertColor(alert.severity)">
+                    <i class="bi" [ngClass]="getAlertIcon(alert.type)"></i>
+                  </div>
+                  <div>
+                    <p class="mb-0 fw-medium" style="font-size:0.8125rem">{{ alert.title }}</p>
+                    <small class="text-muted">{{ alert.description }}</small>
+                  </div>
+                </a>
+              }
+              @if (recentAlerts().length === 0) {
+                <div class="p-3 text-center text-muted" style="font-size:0.8125rem">
+                  <i class="bi bi-check-circle-fill text-success d-block mb-1" style="font-size:1.5rem"></i>
+                  لا توجد تنبيهات
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+      <div class="tmk-user-menu" style="position:relative">
+        <button class="tmk-header__user" (click)="toggleUserMenu()">
+          <div class="tmk-header__avatar">{{ currentUser().avatarInitials }}</div>
+          <div class="tmk-header__user-info d-none d-md-block">
+            <span class="tmk-header__user-name">{{ currentUser().name }}</span>
+            <span class="tmk-header__user-role">{{ currentUser().title }}</span>
+          </div>
+          <i class="bi bi-chevron-down d-none d-md-block" style="font-size:0.75rem;color:#6C737F"></i>
+        </button>
+        @if (showUserMenu()) {
+          <div class="tmk-dropdown tmk-dropdown--user">
+            <a class="tmk-dropdown__item" routerLink="/settings"><i class="bi bi-person-fill"></i><span>الملف الشخصي</span></a>
+            <a class="tmk-dropdown__item" routerLink="/settings"><i class="bi bi-gear-fill"></i><span>الإعدادات</span></a>
+            <hr class="my-1">
+            <a class="tmk-dropdown__item tmk-dropdown__item--danger"><i class="bi bi-box-arrow-right"></i><span>تسجيل الخروج</span></a>
+          </div>
+        }
+      </div>
+    </div>
+  </header>
+  <main class="tmk-content"><ng-content /></main>
+</div>

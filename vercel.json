@@ -1,0 +1,9 @@
+{
+  "buildCommand": "cd Tamkeen-Platform-ModularMonolith/tamkeen/frontend && npm install && npx ng build --configuration production",
+  "outputDirectory": "Tamkeen-Platform-ModularMonolith/tamkeen/frontend/dist/tamkeen-angular/browser",
+  "installCommand": "echo 'Dependencies installed in buildCommand'",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

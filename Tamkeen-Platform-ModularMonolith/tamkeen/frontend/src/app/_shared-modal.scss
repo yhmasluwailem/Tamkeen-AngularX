@@ -1,0 +1,7 @@
+.tmk-overlay { position:fixed; inset:0; background:rgba(17,25,39,0.5); z-index:1050; backdrop-filter:blur(4px); animation:fadeIn .2s ease; }
+.tmk-modal { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:var(--tmk-card-bg); border-radius:16px; box-shadow:var(--tmk-shadow-modal); z-index:1060; width:95%; max-width:700px; max-height:90vh; display:flex; flex-direction:column; animation:tmkModalIn .2s ease; }
+.tmk-modal__header { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 1.5rem; border-bottom:1px solid var(--tmk-border-color); }
+.tmk-modal__body { padding:1.5rem; overflow-y:auto; flex:1; }
+.tmk-modal__footer { display:flex; gap:0.75rem; justify-content:flex-end; padding:1rem 1.5rem; border-top:1px solid var(--tmk-border-color); }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes tmkModalIn { from{opacity:0;transform:translate(-50%,-50%) scale(0.95)} to{opacity:1;transform:translate(-50%,-50%) scale(1)} }
