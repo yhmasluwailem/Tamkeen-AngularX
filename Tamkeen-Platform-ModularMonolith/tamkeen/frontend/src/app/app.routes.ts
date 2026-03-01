@@ -16,5 +16,6 @@ export const routes: Routes = [
   { path: 'finance/:tab', loadComponent: () => import('./pages/finance/finance.component').then(m => m.FinanceComponent) },
   { path: 'employees', loadComponent: () => import('./pages/employees/employees.component').then(m => m.EmployeesComponent) },
   { path: 'settings', loadComponent: () => import('./pages/settings/settings.component').then(m => m.SettingsComponent) },
+  { path: 'ai', loadComponent: () => import('./pages/ai/ai.component').then(m => m.AiComponent) },
   { path: '**', loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent) }
 ];

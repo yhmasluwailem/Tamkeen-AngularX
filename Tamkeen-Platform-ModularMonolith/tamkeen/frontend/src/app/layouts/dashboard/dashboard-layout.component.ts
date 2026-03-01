@@ -49,6 +49,10 @@ export class DashboardLayoutComponent {
     { icon: 'bi-gear-fill', label: 'الإعدادات', route: '/settings' },
   ];
 
+  aiItems = [
+    { icon: 'bi-cpu-fill', label: 'التحليل الذكي', route: '/ai' },
+  ];
+
   toggleCaseManagement() { this.caseManagementOpen.update(v => !v); }
   toggleManagement() { this.managementOpen.update(v => !v); }
 

@@ -67,6 +67,20 @@
       }
     </div>
 
+    <!-- AI -->
+    <div class="tmk-sidebar__section">
+      @if (!sidebarCollapsed()) {
+        <span class="tmk-sidebar__section-title">الذكاء الاصطناعي</span>
+      }
+      @for (item of aiItems; track item.route) {
+        <a class="tmk-sidebar__link tmk-sidebar__link--ai" [routerLink]="item.route" routerLinkActive="active"
+           (click)="closeMobileOnNavigate()" [title]="sidebarCollapsed() ? item.label : ''">
+          <i class="bi {{ item.icon }}"></i>
+          @if (!sidebarCollapsed()) { <span>{{ item.label }}</span> }
+        </a>
+      }
+    </div>
+
     <!-- Management -->
     <div class="tmk-sidebar__section">
       @if (!sidebarCollapsed()) {

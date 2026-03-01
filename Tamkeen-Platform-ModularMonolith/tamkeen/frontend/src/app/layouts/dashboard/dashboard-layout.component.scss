@@ -192,6 +192,24 @@
 
       i { color: #25935F; }
     }
+
+    &--ai {
+      background: linear-gradient(90deg, rgba(99,102,241,0.08) 0%, transparent 100%);
+      color: #A5B4FC;
+
+      i { color: #818CF8; }
+
+      &:hover {
+        background: linear-gradient(90deg, rgba(99,102,241,0.15) 0%, transparent 100%);
+        color: #C7D2FE;
+      }
+
+      &.active {
+        background: linear-gradient(90deg, rgba(99,102,241,0.22) 0%, transparent 100%);
+        color: #E0E7FF;
+        i { color: #A5B4FC; }
+      }
+    }
   }
 
   &__badge {
